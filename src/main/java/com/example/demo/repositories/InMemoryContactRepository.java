@@ -1,6 +1,5 @@
 package com.example.demo.repositories;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -9,10 +8,16 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.models.Contact;
 
-@Repository
+@Repository("InMemory")
 public class InMemoryContactRepository implements ContactRepository {
 
-    private List<Contact> contacts = new ArrayList<>();
+    private List<Contact> contacts;
+
+    public InMemoryContactRepository() {
+        this.contacts = List.of(
+                new Contact("John", "+1234567890"),
+                new Contact("Ben", "+0987654321"));
+    }
 
     @Override
     public int insertContact(UUID id, Contact contact) {
