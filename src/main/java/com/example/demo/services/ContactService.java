@@ -14,4 +14,8 @@ public class ContactService {
             new Contact("Ben", "+0987654321")
         );
     }
+
+    public Optional<Contact> getContactById(UUID id) {
+        return contactRepository.getContactById(id);
+    }
 }
