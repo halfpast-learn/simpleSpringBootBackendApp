@@ -49,7 +49,7 @@ public class ContactController {
 
     @DeleteMapping("/delete/{id}")
     public int deleteContactById(@PathVariable UUID id) {
-        return this.deleteContactById(id);
+        return contactService.deleteContactById(id);
     }
     
 }
