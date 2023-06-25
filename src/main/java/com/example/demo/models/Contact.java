@@ -19,4 +19,11 @@ public class Contact {
         this.name = name;
         this.phone = phone;
     }
+
+    public boolean equals(Object o) {
+        if (!(o instanceof Contact))
+            return false;
+        Contact other = (Contact) o;
+        return other.getId().equals(this.id);
+    }
 }

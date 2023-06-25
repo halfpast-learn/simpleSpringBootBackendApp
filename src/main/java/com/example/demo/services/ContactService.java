@@ -29,4 +29,12 @@ public class ContactService {
     public Optional<Contact> getContactById(UUID id) {
         return contactRepository.getContactById(id);
     }
+
+    public int updateContactById(UUID id, Contact contact) {
+        return contactRepository.updateContactById(id, contact);
+    }
+
+    public int deleteContactById(UUID id) {
+        return contactRepository.deleteContactById(id);
+    }
 }

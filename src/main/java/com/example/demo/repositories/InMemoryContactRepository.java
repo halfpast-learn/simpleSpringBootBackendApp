@@ -22,23 +22,23 @@ public class InMemoryContactRepository implements ContactRepository {
 
     @Override
     public List<Contact> getContacts() {
-        return this.contacts;
+        return contacts;
     }
 
     @Override
     public Optional<Contact> getContactById(UUID id) {
-        return this.contacts.stream().filter(c -> c.getId().equals(id)).findFirst();
+        return contacts.stream().filter(c -> c.getId().equals(id)).findFirst();
     }
 
     @Override
     public int updateContactById(UUID id, Contact contact) {
         return getContactById(id).map(c -> {
-            int index = this.contacts.indexOf(contact);
-            if (index >= 0) {
-                this.contacts.set(index, contact);
-                return 0;
+            int index = contacts.indexOf(c);
+            if (index == -1) {
+                return 1;
             }
-            return 1;
+            contacts.set(index, contact);
+            return 0;
         }).orElse(1);
     }
 
@@ -48,7 +48,7 @@ public class InMemoryContactRepository implements ContactRepository {
         if (cOptional.isEmpty()) {
             return 1;
         }
-        this.contacts.remove(cOptional.get());
+        contacts.remove(cOptional.get());
         return 0;
     }
 
