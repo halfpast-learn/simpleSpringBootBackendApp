@@ -6,6 +6,7 @@ import java.util.UUID;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,6 +21,11 @@ public class ContactController {
 
     public ContactController(ContactService contactService) {
         this.contactService = contactService;
+    }
+
+    @PostMapping("/insert")
+    public int insertContact(@RequestBody Contact contact) {
+        return contactService.insertContact(contact);
     }
 
     @GetMapping

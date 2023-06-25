@@ -1,5 +1,6 @@
 package com.example.demo.repositories;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -11,17 +12,11 @@ import com.example.demo.models.Contact;
 @Repository("InMemory")
 public class InMemoryContactRepository implements ContactRepository {
 
-    private List<Contact> contacts;
-
-    public InMemoryContactRepository() {
-        this.contacts = List.of(
-                new Contact("John", "+1234567890"),
-                new Contact("Ben", "+0987654321"));
-    }
+    private static List<Contact> contacts = new ArrayList<>();
 
     @Override
     public int insertContact(UUID id, Contact contact) {
-        this.contacts.add(new Contact(id, contact.getName(), contact.getPhone()));
+        contacts.add(new Contact(id, contact.getName(), contact.getPhone()));
         return 0;
     }
 

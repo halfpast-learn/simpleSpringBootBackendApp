@@ -18,6 +18,10 @@ public class ContactService {
         this.contactRepository = contactRepository;
     }
 
+    public int insertContact(Contact contact) {
+        return contactRepository.insertContact(contact.getId(), contact);
+    }
+
     public List<Contact> getContacts() {
         return contactRepository.getContacts();
     }
