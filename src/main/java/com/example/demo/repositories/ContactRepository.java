@@ -1,10 +1,11 @@
 package com.example.demo.repositories;
 
-import org.springframework.stereotype.Repository;
+import java.util.UUID;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.demo.models.Contact;
 
-@Repository
-public interface ContactRepository {
+public interface ContactRepository extends JpaRepository<Contact, UUID>  {
     
 }
