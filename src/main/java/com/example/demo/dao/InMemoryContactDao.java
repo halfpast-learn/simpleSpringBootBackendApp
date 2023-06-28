@@ -1,16 +1,13 @@
-package com.example.demo.repositories;
+package com.example.demo.dao;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-import org.springframework.stereotype.Repository;
-
 import com.example.demo.models.Contact;
 
-@Repository("InMemory")
-public class InMemoryContactRepository implements ContactRepository {
+public class InMemoryContactDao implements ContactDao {
 
     private static List<Contact> contacts = new ArrayList<>();
 
