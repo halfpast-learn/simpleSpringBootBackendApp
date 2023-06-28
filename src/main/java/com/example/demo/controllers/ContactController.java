@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.models.Contact;
-import com.example.demo.services.ContactService;
+import com.example.demo.services.ContactServiceDao;
 
 @RestController
 @RequestMapping(path = "api/contact")
 public class ContactController {
-    private final ContactService contactService;
+    private final ContactServiceDao contactService;
     
-    public ContactController(ContactService contactService) {
+    public ContactController(ContactServiceDao contactService) {
         this.contactService = contactService;
     }
 

@@ -2,6 +2,8 @@ package com.example.demo.models;
 
 import java.util.UUID;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -9,6 +11,8 @@ import lombok.AllArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@Table
+@Entity
 public class Contact {
     private UUID id;
     private String name;
@@ -18,12 +22,5 @@ public class Contact {
         this.id = UUID.randomUUID();
         this.name = name;
         this.phone = phone;
-    }
-
-    public boolean equals(Object o) {
-        if (!(o instanceof Contact))
-            return false;
-        Contact other = (Contact) o;
-        return other.getId().equals(this.id);
     }
 }
