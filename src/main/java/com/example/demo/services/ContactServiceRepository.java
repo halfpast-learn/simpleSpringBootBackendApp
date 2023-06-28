@@ -51,7 +51,8 @@ public class ContactServiceRepository implements ContactService {
     @Override
     public int updateContactById(UUID id, Contact contact) {
         try {
-            contactRepository.save(contact);
+            Contact contactToUpdate = new Contact(id, contact.getName(), contact.getPhone());
+            contactRepository.save(contactToUpdate);
         }
         catch(Exception e) {
             System.err.println(e.getStackTrace().toString());
