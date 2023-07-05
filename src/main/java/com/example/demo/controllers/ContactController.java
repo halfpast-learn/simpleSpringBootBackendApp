@@ -19,7 +19,7 @@ import com.example.demo.models.Contact;
 import com.example.demo.services.ContactService;
 
 @RestController
-@RequestMapping(path = "api/contact")
+@RequestMapping(path = "/api/contact")
 public class ContactController {
     private final ContactService contactService;
     
@@ -32,7 +32,7 @@ public class ContactController {
         return contactService.insertContact(contact);
     }
 
-    @GetMapping
+    @GetMapping("/")
     public List<Contact> getContacts() {
         return contactService.getContacts();
     }
